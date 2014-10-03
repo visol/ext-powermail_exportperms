@@ -26,13 +26,13 @@ if the user doesn't have at least content editing permissions on a page. This is
 To use this functionality in the Powermail backend module, copy the backend templates to your template extension (or anywhere you want)
 and configure the module to use them:
 
-```module.tx_powermail {
-	view {
-		templateRootPath = path/to/Templates
-		partialRootPath = path/to/Partials
-		layoutRootPath = path/to/Layouts
+	module.tx_powermail {
+		view {
+			templateRootPath = path/to/Templates
+			partialRootPath = path/to/Partials
+			layoutRootPath = path/to/Layouts
+		}
 	}
-}```
 
 Then, import the namespace of the extension's ViewHelper:
 
@@ -40,14 +40,14 @@ Then, import the namespace of the extension's ViewHelper:
 
 And wrap whatever you want to show and hide depending on the editing rights with an if condition using the UserHasWritePermissionForPage ViewHelper:
 
-```<f:if condition="{pmep:userHasWritePermissionForPage()}">
-	<f:then>
-		[Show stuff]
-	</f:then>
-	<f:else>
-		Access denied.
-	</f:else>
-</f:if>```
+	<f:if condition="{pmep:userHasWritePermissionForPage()}">
+		<f:then>
+			[Show stuff]
+		</f:then>
+		<f:else>
+			Access denied.
+		</f:else>
+	</f:if>
 
 
 Security considerations
