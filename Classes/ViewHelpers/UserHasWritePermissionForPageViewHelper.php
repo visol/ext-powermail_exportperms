@@ -1,4 +1,5 @@
 <?php
+
 namespace Visol\PowermailExportperms\ViewHelpers;
 
 /***************************************************************
@@ -24,20 +25,22 @@ namespace Visol\PowermailExportperms\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class UserHasWritePermissionForPageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class UserHasWritePermissionForPageViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+{
 
-	/**
-	 * @return array
-	 */
-	public function render() {
-
-		$currentPageUid = (int)GeneralUtility::_GET('id');
-		if (!$GLOBALS['BE_USER']->doesUserHaveAccess(\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', $currentPageUid), 16)) {
-			// user does not have permission to edit contents on this page
-			return FALSE;
-		}
-		return TRUE;
-	}
+    /**
+     * @return bool
+     */
+    public function render()
+    {
+        $currentPageUid = (int)GeneralUtility::_GET('id');
+        if (!$GLOBALS['BE_USER']->doesUserHaveAccess(BackendUtility::getRecord('pages', $currentPageUid), 16)) {
+            // user does not have permission to edit contents on this page
+            return false;
+        }
+        return true;
+    }
 }

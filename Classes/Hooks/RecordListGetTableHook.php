@@ -1,4 +1,5 @@
 <?php
+
 namespace Visol\PowermailExportperms\Hooks;
 
 /***************************************************************
@@ -24,34 +25,38 @@ namespace Visol\PowermailExportperms\Hooks;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Backend\Utility\BackendUtility;
+
 /**
  * Hook to modify the getTable query for Powermail mails and answers
  */
-class RecordListGetTableHook implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface {
+class RecordListGetTableHook implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface
+{
 
-	/**
-	 * modifies the DB list query
-	 *
-	 * @param string $table The current database table
-	 * @param integer $pageId The record's page ID
-	 * @param string $additionalWhereClause An additional WHERE clause
-	 * @param string $selectedFieldsList Comma separated list of selected fields
-	 * @param \TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList $parentObject Parent localRecordList object
-	 * @return void
-	 */
-	public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject) {
-		if ($GLOBALS['BE_USER']->isAdmin()) {
-			// early return if user is admin
-			return;
-		}
+    /**
+     * modifies the DB list query
+     *
+     * @param string $table The current database table
+     * @param integer $pageId The record's page ID
+     * @param string $additionalWhereClause An additional WHERE clause
+     * @param string $selectedFieldsList Comma separated list of selected fields
+     * @param \TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList $parentObject Parent localRecordList object
+     * @return void
+     */
+    public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject)
+    {
+        if ($GLOBALS['BE_USER']->isAdmin()) {
+            // early return if user is admin
+            return;
+        }
 
-		if ($table === 'tx_powermail_domain_model_answers' || $table === 'tx_powermail_domain_model_mails') {
-			// 16 = permission to edit content on the page
-			if (!$GLOBALS['BE_USER']->doesUserHaveAccess(\TYPO3\CMS\Backend\Utility\BackendUtility::getRecord('pages', $pageId), 16)) {
-				// user does not have permission to edit contents on this page, so we add a clause not to show any records
-				$additionalWhereClause = 'AND 1=2';
-			}
-		}
-	}
+        if ($table === 'tx_powermail_domain_model_answer' || $table === 'tx_powermail_domain_model_mail') {
+            // 16 = permission to edit content on the page
+            if (!$GLOBALS['BE_USER']->doesUserHaveAccess(BackendUtility::getRecord('pages', $pageId), 16)) {
+                // user does not have permission to edit contents on this page, so we add a clause not to show any records
+                $additionalWhereClause = 'AND 1=2';
+            }
+        }
+    }
 
 }
