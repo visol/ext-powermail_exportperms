@@ -61,5 +61,5 @@ Do not use the extension if you are obliged to make the records completely inacc
 Requirements
 ------------
 
-TYPO3 6.2
-Powermail 2.1 or 3.0-F
+TYPO3 8.7 LTS+
+Tested with Powermail 5.3

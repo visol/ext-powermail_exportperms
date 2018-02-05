@@ -5,5 +5,13 @@
   "homepage": "https://github.com/visol/ext-powermail_exportperms",
   "license": [
     "GPL-2.0-or-later"
-  ]
+  ],
+  "require": {
+    "typo3/cms-core": "~8.7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Visol\\PowermailExportperms\\": "Classes"
+    }
+  }
 }
