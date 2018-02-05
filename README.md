@@ -11,11 +11,9 @@ This simple extension hooks into the Powermail and the List module and check for
 Installation
 ------------
 
-Clone the repository into your typo3conf/ext folder as follows:
+Get it from composer:
 
-    git clone https://github.com/visol/ext-powermail_exportperms.git powermail_exportperms
-
-If you download it as ZIP file, don't forget to rename the folder to "powermail_exportperms".
+    composer require visol/powermail-exportperms
 
 Usage
 -----
@@ -61,5 +59,5 @@ Do not use the extension if you are obliged to make the records completely inacc
 Requirements
 ------------
 
-TYPO3 8.7 LTS+
-Tested with Powermail 5.3
+* TYPO3 8.7 LTS+
+* Tested with Powermail 5.3
