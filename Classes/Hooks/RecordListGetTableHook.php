@@ -24,13 +24,13 @@ namespace Visol\PowermailExportperms\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
  * Hook to modify the getTable query for Powermail mails and answers
  */
-class RecordListGetTableHook implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface
+class RecordListGetTableHook implements RecordListGetTableHookInterface
 {
 
     /**

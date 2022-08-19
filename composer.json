@@ -1,17 +1,22 @@
 {
-  "name": "visol/powermail-exportperms",
-  "type": "typo3-cms-extension",
-  "description": "Powermail Export Permissions",
-  "homepage": "https://github.com/visol/ext-powermail_exportperms",
-  "license": [
-    "GPL-2.0-or-later"
-  ],
-  "require": {
-    "typo3/cms-core": "~8.7.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Visol\\PowermailExportperms\\": "Classes"
-    }
-  }
+	"name": "visol/powermail-exportperms",
+	"type": "typo3-cms-extension",
+	"description": "Powermail Export Permissions",
+	"homepage": "https://github.com/visol/ext-powermail_exportperms",
+	"license": [
+		"GPL-2.0-or-later"
+	],
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "powermail_exportperms"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Visol\\PowermailExportperms\\": "Classes"
+		}
+	},
+	"require": {
+		"typo3/cms-core": "^11.5"
+	}
 }
