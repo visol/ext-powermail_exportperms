@@ -12,9 +12,10 @@ class UserHasWritePermissionForPageViewHelper extends AbstractViewHelper
     /**
      * @return bool
      */
-    public function render()
+    public function render(): bool
     {
         $currentPageUid = (int)GeneralUtility::_GET('id');
+        // 16 = permission to edit content on the page
         if (!$GLOBALS['BE_USER']->doesUserHaveAccess(BackendUtility::getRecord('pages', $currentPageUid), 16)) {
             // user does not have permission to edit contents on this page
             return false;

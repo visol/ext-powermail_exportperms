@@ -44,7 +44,7 @@ class RecordListGetTableHook implements RecordListGetTableHookInterface
      * @param DatabaseRecordList $parentObject Parent localRecordList object
      * @return void
      */
-    public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject)
+    public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject): void
     {
         if ($GLOBALS['BE_USER']->isAdmin()) {
             // early return if user is admin
