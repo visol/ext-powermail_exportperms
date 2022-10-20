@@ -24,13 +24,14 @@ namespace Visol\PowermailExportperms\Hooks;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-
+use TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList;
+use TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
  * Hook to modify the getTable query for Powermail mails and answers
  */
-class RecordListGetTableHook implements \TYPO3\CMS\Backend\RecordList\RecordListGetTableHookInterface
+class RecordListGetTableHook implements RecordListGetTableHookInterface
 {
 
     /**
@@ -40,10 +41,10 @@ class RecordListGetTableHook implements \TYPO3\CMS\Backend\RecordList\RecordList
      * @param integer $pageId The record's page ID
      * @param string $additionalWhereClause An additional WHERE clause
      * @param string $selectedFieldsList Comma separated list of selected fields
-     * @param \TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList $parentObject Parent localRecordList object
+     * @param DatabaseRecordList $parentObject Parent localRecordList object
      * @return void
      */
-    public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject)
+    public function getDBlistQuery($table, $pageId, &$additionalWhereClause, &$selectedFieldsList, &$parentObject): void
     {
         if ($GLOBALS['BE_USER']->isAdmin()) {
             // early return if user is admin
