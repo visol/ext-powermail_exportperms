@@ -1,0 +1,2 @@
+# override backend templates. Config is setting $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
+templates.in2code/powermail.1752658658 = visol/powermail-exportperms:Resources/Private/TemplateOverrides
