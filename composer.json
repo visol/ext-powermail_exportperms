@@ -1,6 +1,6 @@
 {
   "name": "visol/powermail-exportperms",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "type": "typo3-cms-extension",
   "description": "Powermail Export Permissions",
   "homepage": "https://github.com/visol/ext-powermail_exportperms",
