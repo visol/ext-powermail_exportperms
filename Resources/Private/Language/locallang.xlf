@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2025-07-16T10:40:22+0000" product-name="powermail_exportperms">
+		<header/>
+		<body>
+			<trans-unit id="permission.info.description" xml:space="preserve">
+				<source>Only visible if editor owns appropriate edit rights on the selected page.</source>
+			</trans-unit>
+			<trans-unit id="permission.denied.description" xml:space="preserve">
+				<source>Only visible if editor owns appropriate edit rights on the selected page.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
